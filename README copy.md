@@ -1,4 +1,4 @@
-# MediDoc WhatsApp Chatbot
+# MediHelp WhatsApp Chatbot
 ## Getting Started
 
 ### Prerequisites
@@ -14,7 +14,7 @@
 
    ```bash
    git clone the repo
-   cd medidoc
+   cd MediHelp
    ```
 
 2. **Install dependencies** – `npm install` must be used because `pnpm install` is currently unsupported as noted in `fixes.md`.
@@ -32,10 +32,10 @@
    # or run interactive setup (prompts for ports, API keys, etc.)
    npm run setup
    ```
-MediDoc is a **WhatsApp‑based virtual assistant** designed to help patients stay on track with their daily medication and habit routines.  
+MediHelp is a **WhatsApp‑based virtual assistant** designed to help patients stay on track with their daily medication and habit routines.  
 It combines **Large Language Models (LLMs)**, **conversation memory** and the **COM‑B behavioural framework** to deliver Just‑In‑Time Adaptive Interventions (JITAIs) over WhatsApp.
 
-At its core MediDoc is a Node.js/Express application that can operate in two modes:
+At its core MediHelp is a Node.js/Express application that can operate in two modes:
 
 * **WhatsApp Web mode** – library to log in via QR code and send/receive messages through a personal WhatsApp account.  
 * **WhatsApp Business API mode** – receives messages via a webhook and responds via the official Meta Business API.
@@ -63,12 +63,12 @@ Experimental TypeScript modules implement structured decision and chat prompts b
 
 ## Background & Research Context
 
-MediDoc sits at the intersection of digital health research and cutting‑edge AI.  
+MediHelp sits at the intersection of digital health research and cutting‑edge AI.  
 Recent work has shown that large language models are promising tools for generating JITAI content.  A study at CHI ’25 tested GPT‑4 on cardiac rehabilitation scenarios and found that GPT‑4–generated JITAIs outperformed those created by both laypersons and healthcare professionals across metrics such as appropriateness, engagement, effectiveness, and professionalism.  These findings suggest that generative models can produce high‑quality, context‑aware interventions at scale.
 
-Our repository also draws inspiration from the Welch TRaC grant proposal for an AI agent to promote hypertension medication adherence.  The proposal outlines a phased plan to build and evaluate a WhatsApp‑based agent that uses the COM‑B (Capability, Opportunity and Motivation) framework to personalize prompts and monitor adherence.  The first aim is to develop a prototype that asks patients about preferences and barriers, sends tailored prompts and feedback, and monitors adherence.  Subsequent aims involve expert review of LLM‑generated JITAI messages and user testing with hypertensive patients to refine the system.  These goals align closely with MediDoc’s architecture, which combines a conversation manager, LLM integration, and COM‑B‑based decision logic.
+Our repository also draws inspiration from the Welch TRaC grant proposal for an AI agent to promote hypertension medication adherence.  The proposal outlines a phased plan to build and evaluate a WhatsApp‑based agent that uses the COM‑B (Capability, Opportunity and Motivation) framework to personalize prompts and monitor adherence.  The first aim is to develop a prototype that asks patients about preferences and barriers, sends tailored prompts and feedback, and monitors adherence.  Subsequent aims involve expert review of LLM‑generated JITAI messages and user testing with hypertensive patients to refine the system.  These goals align closely with MediHelp’s architecture, which combines a conversation manager, LLM integration, and COM‑B‑based decision logic.
 
-COM‑B posits that behaviour is driven by a combination of **capability**, **opportunity**, and **motivation**; interventions should therefore address these components to promote adherence.  MediDoc’s experimental TypeScript modules encode COM‑B tags and use structured JSON outputs to indicate which component a message targets, providing a foundation for future adaptive messaging strategies.
+COM‑B posits that behaviour is driven by a combination of **capability**, **opportunity**, and **motivation**; interventions should therefore address these components to promote adherence.  MediHelp’s experimental TypeScript modules encode COM‑B tags and use structured JSON outputs to indicate which component a message targets, providing a foundation for future adaptive messaging strategies.
 
 
 
