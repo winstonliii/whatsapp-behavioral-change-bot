@@ -1,11 +1,43 @@
 # MediDoc WhatsApp Chatbot
+## Getting Started
 
+### Prerequisites
+
+* **Node.js 16 or later** (the project is tested on Node 18)
+* **npm** – package manager (note: `pnpm` currently does not work due to dependency issues – please use `npm install`)
+* An **OpenAI API key** (optional but recommended for real responses)
+* **WhatsApp** on your phone for scanning the QR code or a **Meta Business API** account and credentials
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone the repo
+   cd medidoc
+   ```
+
+2. **Install dependencies** – `npm install` must be used because `pnpm install` is currently unsupported as noted in `fixes.md`.
+
+   ```bash
+   npm install
+   ```
+
+3. **Create your environment file** – copy the example and fill in your configuration.  You can do this manually or via the interactive setup script.
+
+   ```bash
+   # copy example values
+   cp env.example .env
+   
+   # or run interactive setup (prompts for ports, API keys, etc.)
+   npm run setup
+   ```
 MediDoc is a **WhatsApp‑based virtual assistant** designed to help patients stay on track with their daily medication and habit routines.  
 It combines **Large Language Models (LLMs)**, **conversation memory** and the **COM‑B behavioural framework** to deliver Just‑In‑Time Adaptive Interventions (JITAIs) over WhatsApp.
 
 At its core MediDoc is a Node.js/Express application that can operate in two modes:
 
-* **WhatsApp Web mode** – uses the `whatsapp-web.js` library to log in via QR code and send/receive messages through a personal WhatsApp account.  
+* **WhatsApp Web mode** – library to log in via QR code and send/receive messages through a personal WhatsApp account.  
 * **WhatsApp Business API mode** – receives messages via a webhook and responds via the official Meta Business API.
 
 An optional admin API exposes conversation statistics, lets you view/clear conversations and adjust LLM parameters.  
@@ -15,7 +47,7 @@ Experimental TypeScript modules implement structured decision and chat prompts b
 
 - 💬 **Conversational AI** – integrates with OpenAI’s GPT models.  If no API key is provided, the bot falls back to friendly placeholder replies instead of failing.
 - 🧠 **Conversation history** – every chat maintains its own in‑memory history so that the LLM has context for follow‑up messages.
-- 🔄 **Dual WhatsApp integration** – connect via QR code with `whatsapp-web.js` or set up a webhook for the Business API.
+- 🔄 **Dual WhatsApp integration** – connect via QR code with or set up a webhook for the Business API.
 - 🛡️ **Safety guardrails** – responses avoid prescribing or changing medication doses and politely refuse clinical questions.  Fallback messages and error handling prevent crashes.
 - 📈 **Admin dashboard endpoints** – view bot status, see conversations, clear histories and tune LLM parameters over an authenticated API.
 - 🧪 **JITAI decision & chat modules (experimental)** – TypeScript functions implement structured decision making and chat responses using the COM‑B framework and JSON schema validation.  These are provided for experimentation and are not yet wired into the bot.
@@ -38,39 +70,7 @@ Our repository also draws inspiration from the Welch TRaC grant proposal for an
 
 COM‑B posits that behaviour is driven by a combination of **capability**, **opportunity**, and **motivation**; interventions should therefore address these components to promote adherence.  MediDoc’s experimental TypeScript modules encode COM‑B tags and use structured JSON outputs to indicate which component a message targets, providing a foundation for future adaptive messaging strategies.
 
-## Getting Started
 
-### Prerequisites
-
-* **Node.js 16 or later** (the project is tested on Node 18)
-* **npm** – package manager (note: `pnpm` currently does not work due to dependency issues – please use `npm install`)
-* An **OpenAI API key** (optional but recommended for real responses)
-* **WhatsApp** on your phone for scanning the QR code or a **Meta Business API** account and credentials
-
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone <your‑repo‑url>
-   cd medidoc
-   ```
-
-2. **Install dependencies** – `npm install` must be used because `pnpm install` is currently unsupported as noted in `fixes.md`【.
-
-   ```bash
-   npm install
-   ```
-
-3. **Create your environment file** – copy the example and fill in your configuration.  You can do this manually or via the interactive setup script.
-
-   ```bash
-   # copy example values
-   cp env.example .env
-   
-   # or run interactive setup (prompts for ports, API keys, etc.)
-   npm run setup
-   ```
 
    The key variables are:
 
@@ -206,10 +206,6 @@ The project **needs further development** in the following areas:
 
 8. **Domain expert review of JITAI content** – generate sample JITAI decisions and messages with the bot and obtain feedback from clinicians and behavioural scientists to refine tone, cadence and appropriateness.
 9. **User testing with patients** – run a pilot study with a small cohort of hypertensive patients to assess the usability and clarity of prompts and collect feedback for version 1.0 refinement.
-
-## Contributing
-
-Contributions are welcome!  If you would like to add a feature or fix a bug, please fork the repository and open a pull request.  Remember to add or update tests where appropriate and follow the existing code style.
 
 ## License
 
